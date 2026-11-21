@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="8" fill="#080808"/>
+  <!-- V stroke -->
+  <path d="M4 8L10 24H14L20 8H16L12 18L8 8H4Z" fill="#FFFFFF"/>
+  <!-- Accent lime slash -->
+  <polygon points="9,8 13,8 10,14 7,14" fill="#B7F500"/>
+  <!-- G stroke -->
+  <path d="M18 8H28V12H21V20H27V15H23V12H29V24H18V8Z" fill="#FFFFFF"/>
+</svg>
