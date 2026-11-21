@@ -29,7 +29,7 @@ export const siteConfig = {
   location: "INDIA • AVAILABLE WORLDWIDE",
   status: "AVAILABLE FOR PROJECTS",
   creator: "Varchswa Gupta",
-  email: "hello@vgstudio.design",
+  email: "varchswagupta011@gmail.com",
   phone: "+91 9990028468",
   phoneDisplay: "+91 9990028468",
   phoneRaw: "919990028468",
