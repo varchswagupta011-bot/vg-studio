@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/siteConfig";
-import { ArrowUpRight, Mail, Phone, MessageCircle, MapPin, Copy, Check, Send, AlertCircle, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, Send, AlertCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export function Contact() {
@@ -16,20 +16,6 @@ export function Contact() {
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [copied, setCopied] = useState<boolean>(false);
-  const [copiedPhone, setCopiedPhone] = useState<boolean>(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText(siteConfig.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,46 +90,47 @@ export function Contact() {
 
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#080808] text-white flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-[#080808] text-white flex items-center justify-center flex-shrink-0">
                       <Mail className="w-4 h-4 text-[#B7F500]" />
                     </div>
                     <div>
-                      <span className="text-xs sm:text-sm font-bold text-[#080808] block">
+                      <a
+                        href={`mailto:${siteConfig.email}`}
+                        className="text-xs sm:text-sm font-bold text-[#080808] hover:underline block"
+                      >
                         {siteConfig.email}
-                      </span>
+                      </a>
                       <span className="text-[10px] text-zinc-500">
                         Typical response: under 24 hours
                       </span>
                     </div>
                   </div>
 
-                  <button
-                    onClick={handleCopyEmail}
-                    className="p-2 rounded-lg border border-[#DAD9D3] hover:border-[#080808] text-[#080808] transition-colors"
-                    title="Copy email to clipboard"
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#080808] text-white hover:bg-[#202020] text-xs font-bold transition-all shadow-xs group cursor-pointer flex-shrink-0"
                   >
-                    {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                  </button>
+                    <span>Send Email</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#B7F500] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-[#DAD9D3] flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#25D366] text-white flex items-center justify-center shadow-xs">
+                    <div className="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-xs flex-shrink-0">
                       <Phone className="w-4 h-4 fill-white" />
                     </div>
                     <div>
-                      <span className="text-xs sm:text-sm font-bold text-[#080808] block">
+                      <a
+                        href={siteConfig.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs sm:text-sm font-bold text-[#080808] hover:underline block"
+                      >
                         {siteConfig.phone}
-                      </span>
+                      </a>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <a
-                          href={siteConfig.whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] font-bold text-[#25D366] hover:underline"
-                        >
-                          WhatsApp Chat ↗
-                        </a>
+                        <span className="text-[10px] font-bold text-[#25D366]">Available on WhatsApp</span>
                         <span className="text-zinc-300">•</span>
                         <a
                           href={`tel:${siteConfig.phoneRaw}`}
@@ -155,13 +142,15 @@ export function Contact() {
                     </div>
                   </div>
 
-                  <button
-                    onClick={handleCopyPhone}
-                    className="p-2 rounded-lg border border-[#DAD9D3] hover:border-[#080808] text-[#080808] transition-colors"
-                    title="Copy phone number"
+                  <a
+                    href={siteConfig.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#25D366] text-white hover:bg-[#20ba59] text-xs font-bold transition-all shadow-xs group cursor-pointer flex-shrink-0"
                   >
-                    {copiedPhone ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                  </button>
+                    <span>WhatsApp</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-[#DAD9D3] flex items-center gap-2 text-xs font-mono text-[#555555]">
