@@ -6,8 +6,8 @@ import { ArrowDownRight, ArrowUpRight, ArrowDown } from "lucide-react";
 import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
-  const scrollToWork = () => {
-    const el = document.getElementById("work");
+  const scrollToServices = () => {
+    const el = document.getElementById("services");
     if (el) {
       const topOffset = 85;
       const elementPosition = el.getBoundingClientRect().top;
@@ -78,10 +78,10 @@ export function Hero() {
             >
               {/* Primary Pill Button */}
               <button
-                onClick={scrollToWork}
+                onClick={scrollToServices}
                 className="group inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#080808] text-white text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:bg-[#202020] hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>EXPLORE MY WORK</span>
+                <span>EXPLORE SERVICES</span>
                 <ArrowDownRight className="w-4 h-4 text-[#B7F500] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </button>
 
@@ -115,7 +115,7 @@ export function Hero() {
           </div>
 
           <button
-            onClick={scrollToWork}
+            onClick={scrollToServices}
             className="group flex items-center gap-2 text-[#080808] hover:text-[#B7F500] transition-colors cursor-pointer"
           >
             <span className="font-mono text-[11px] font-bold tracking-widest uppercase">

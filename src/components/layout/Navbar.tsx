@@ -8,7 +8,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState<string>("work");
+  const [activeSection, setActiveSection] = useState<string>("services");
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -16,7 +16,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["work", "services", "about", "process", "contact"];
+      const sections = ["services", "about", "process", "contact"];
       const scrollPos = window.scrollY + 140;
 
       for (const section of sections) {

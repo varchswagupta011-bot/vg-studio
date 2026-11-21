@@ -37,7 +37,6 @@ export const siteConfig = {
     instagram: "https://instagram.com",
   },
   navLinks: [
-    { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Process", href: "#process" },
