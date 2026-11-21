@@ -16,21 +16,25 @@ export function WhatsAppButton() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="group relative flex items-center cursor-pointer"
-        aria-label="Chat on WhatsApp +91 9990028468"
+        aria-label={`Chat on WhatsApp ${siteConfig.phone}`}
       >
-        {/* Dark Pill Tooltip / Label */}
-        <div
-          className={`flex items-center mr-3 px-4 py-2.5 rounded-xl bg-[#080808] text-white border border-zinc-700/80 shadow-[0_10px_25px_rgba(0,0,0,0.3)] transition-all duration-300 ${
-            isHovered
-              ? "scale-105 border-[#25D366]/60 shadow-[0_10px_30px_rgba(37,211,102,0.25)]"
-              : ""
-          }`}
-        >
-          <span className="font-mono text-xs sm:text-sm font-semibold tracking-wide text-zinc-100 whitespace-nowrap">
-            Chat on WhatsApp <span className="text-[#25D366] mx-1">•</span>{" "}
-            <span className="text-white font-bold">{siteConfig.phone}</span>
-          </span>
-        </div>
+        {/* Dark Pill Tooltip / Label - Only appears when hovered */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ opacity: 0, x: 12, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 12, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="flex items-center mr-3 px-4 py-2.5 rounded-xl bg-[#080808] text-white border border-zinc-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.35)] pointer-events-none whitespace-nowrap"
+            >
+              <span className="font-mono text-xs sm:text-sm font-semibold tracking-wide text-zinc-100">
+                Chat on WhatsApp <span className="text-[#25D366] mx-1">•</span>{" "}
+                <span className="text-white font-bold">{siteConfig.phone}</span>
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* WhatsApp Circular Button with Outer Pulse Ring */}
         <div className="relative flex items-center justify-center">
