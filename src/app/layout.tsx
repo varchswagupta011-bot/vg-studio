@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/common/CustomCursor";
+import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -72,6 +73,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

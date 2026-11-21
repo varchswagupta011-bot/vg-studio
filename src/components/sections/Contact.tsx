@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/siteConfig";
-import { ArrowUpRight, Mail, MapPin, Copy, Check, Send, AlertCircle, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MessageCircle, MapPin, Copy, Check, Send, AlertCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export function Contact() {
@@ -17,11 +17,18 @@ export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
+  const [copiedPhone, setCopiedPhone] = useState<boolean>(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(siteConfig.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(siteConfig.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -116,6 +123,44 @@ export function Contact() {
                     title="Copy email to clipboard"
                   >
                     {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-[#DAD9D3] flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#25D366] text-white flex items-center justify-center shadow-xs">
+                      <Phone className="w-4 h-4 fill-white" />
+                    </div>
+                    <div>
+                      <span className="text-xs sm:text-sm font-bold text-[#080808] block">
+                        {siteConfig.phone}
+                      </span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <a
+                          href={siteConfig.whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] font-bold text-[#25D366] hover:underline"
+                        >
+                          WhatsApp Chat ↗
+                        </a>
+                        <span className="text-zinc-300">•</span>
+                        <a
+                          href={`tel:${siteConfig.phoneRaw}`}
+                          className="text-[10px] font-medium text-zinc-500 hover:text-black hover:underline"
+                        >
+                          Direct Call
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyPhone}
+                    className="p-2 rounded-lg border border-[#DAD9D3] hover:border-[#080808] text-[#080808] transition-colors"
+                    title="Copy phone number"
+                  >
+                    {copiedPhone ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
 

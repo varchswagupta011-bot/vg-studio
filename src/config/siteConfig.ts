@@ -30,6 +30,10 @@ export const siteConfig = {
   status: "AVAILABLE FOR PROJECTS",
   creator: "Varchswa Gupta",
   email: "hello@vgstudio.design",
+  phone: "+91 9990028468",
+  phoneDisplay: "+91 9990028468",
+  phoneRaw: "919990028468",
+  whatsappUrl: "https://wa.me/919990028468?text=Hi%20VG%20STUDIO%2C%20I%20would%20like%20to%20discuss%20a%20website%20project!",
   socials: {
     github: "https://github.com/varchswagupta011-bot",
     twitter: "https://x.com",

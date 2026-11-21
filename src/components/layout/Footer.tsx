@@ -74,9 +74,17 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="text-sm font-mono font-bold text-[#080808] hover:text-[#B7F500] transition-colors block mb-5 underline"
+              className="text-sm font-mono font-bold text-[#080808] hover:text-[#B7F500] transition-colors block mb-1.5 underline"
             >
               {siteConfig.email}
+            </a>
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono font-bold text-[#25D366] hover:underline block mb-5"
+            >
+              WhatsApp / Tel: {siteConfig.phone} ↗
             </a>
 
             <div className="flex flex-wrap gap-2.5">
